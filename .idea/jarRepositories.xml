@@ -61,5 +61,20 @@
       <option name="name" value="maven11" />
       <option name="url" value="https://s01.oss.sonatype.org/content/repositories/snapshots/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven7" />
+      <option name="name" value="maven7" />
+      <option name="url" value="http://nexus.dominicus.kr:8081/repository/RPGParty-release/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven7" />
+      <option name="name" value="maven7" />
+      <option name="url" value="http://nexus.dominicus.kr:8081/repository/RPG-release/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven7" />
+      <option name="name" value="maven7" />
+      <option name="url" value="http://nexus.dominicus.kr:8081/repository/RPG/" />
+    </remote-repository>
   </component>
 </project>
