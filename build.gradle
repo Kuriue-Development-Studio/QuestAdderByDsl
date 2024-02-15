@@ -1,11 +1,20 @@
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.8.22'
+    id 'maven-publish'
+    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
     id("io.papermc.paperweight.userdev") version "1.5.11"
 }
 
-group = 'org.gang'
-version = '1.0-SNAPSHOT'
+group = 'org.gang.rpgsystem'
+version = 'release'
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+jar {
+    archiveName("${project.name}-${version}.jar")
+}
+
 def apiversiond = "1.1.6"
 repositories {
     mavenLocal()
@@ -16,7 +25,11 @@ repositories {
     maven { url = "https://repo.codemc.org/repository/maven-public/" }
     maven { url "https://s01.oss.sonatype.org/content/groups/public/" }
     maven {
-        url "http://nexus.dominicus.kr:8081/repository/debugcat-release/"
+        credentials {
+            username = repoUsername
+            password = repoPassword
+        }
+        url "http://nexus.dominicus.kr:8081/repository/RPG/"
         allowInsecureProtocol = true
     }
     maven {
@@ -35,6 +48,32 @@ dependencies {
     implementation 'taewookim:RPGParty:release'
     implementation 'taewookim:RPGCore:release'
     implementation 'taewookim:RPGPlayerInformation:release'
+}
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId group
+            artifactId project.name
+            version version
+
+            artifact("build/libs/$project.name-$version" + ".jar") {
+                extension 'jar'
+            }
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username = repoUsername
+                password = repoPassword
+            }
+            def releasesRepoUrl = "http://nexus.dominicus.kr:8081/repository/RPG/"
+            url = releasesRepoUrl
+            allowInsecureProtocol = true
+        }
+    }
 }
 
 def targetJavaVersion = 17
