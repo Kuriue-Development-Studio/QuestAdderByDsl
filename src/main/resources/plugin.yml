@@ -2,11 +2,10 @@ name: RpgInventorySystem
 version: '${version}'
 main: org.gang.rpgsystem.RpgInventorySystem
 api-version: '1.20'
-depend:
-  - DebugCatApi
+softdepend:
   - RPGParty
+  - RPGPlayerInformation
 libraries:
-  - org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9
   - xyz.icetang.lib:kommand-core:3.1.11
   - io.github.monun:invfx-core:3.3.2
   - io.github.monun:heartbeat-coroutines:0.0.5

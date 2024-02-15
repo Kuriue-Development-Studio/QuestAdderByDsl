@@ -3,7 +3,7 @@ package org.gang.rpgsystem
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
-import org.gang.rpgsystem.party.showMemberInventory
+import org.gang.rpgsystem.party.PartyInventorySystem
 import taewookim.PartySystem
 import taewookim.PlayerInformation
 import xyz.icetang.lib.kommand.kommand
@@ -19,7 +19,7 @@ class RpgInventorySystem : JavaPlugin() {
             register("inv"){
                 then("member"){
                     executes {
-                        showMemberInventory(sender as Player)
+                        PartyInventorySystem.showMemberInventory(sender as Player)
                     }
                 }
             }
