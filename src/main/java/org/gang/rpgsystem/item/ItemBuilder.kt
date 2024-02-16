@@ -3,8 +3,10 @@ package org.gang.debugcat.item
 import net.minecraft.world.item.*
 import org.bukkit.Material
 import org.bukkit.craftbukkit.v1_20_R3.inventory.CraftItemStack
+import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
+import org.bukkit.inventory.meta.SkullMeta
 import org.bukkit.material.MaterialData
 
 inline fun item(
@@ -53,7 +55,7 @@ public fun MaterialData.toItemStack(
 /**
  * get head from base64
  */
-
+inline val ItemStack.getHead: Player? get() = (this.itemMeta as SkullMeta).owningPlayer?.player
  inline val ItemStack.isPickaxe: Boolean get() = this.toNmsItem?.item is PickaxeItem
  inline val ItemStack.isSword: Boolean get() = this.toNmsItem?.item is SwordItem
  inline val ItemStack.isAxe: Boolean get() = this.toNmsItem?.item is AxeItem
