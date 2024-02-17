@@ -12,6 +12,10 @@ def apiversiond = "1.1.6"
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
     maven { url = "https://jitpack.io" }
     maven { url = 'https://repo.papermc.io/repository/maven-public/' }
     maven { url = 'https://oss.sonatype.org/content/groups/public/' }
@@ -45,6 +49,7 @@ dependencies {
     implementation 'taewookim:RPGParty:release'
     implementation 'taewookim:RPGCore:release'
     implementation 'taewookim:RPGPlayerInformation:release'
+
 }
 
 def targetJavaVersion = 17
