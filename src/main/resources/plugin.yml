@@ -1,11 +1,12 @@
-name: RpgInventorySystem
+name: QuestAdderDSL
 version: '${version}'
-main: org.gang.rpgsystem.RpgInventorySystem
+main: org.gang.rpgsystem.QuestAdderDsl
 api-version: '1.20'
 softdepend:
   - RPGParty
   - RPGPlayerInformation
-
+  - RPGCore
+  - QuestManager
 libraries:
   - xyz.icetang.lib:kommand-core:3.1.11
   - io.github.monun:invfx-core:3.3.2
